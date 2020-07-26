@@ -17,7 +17,7 @@ public class ATM {
 
 	public void getInfoATM() {
 		System.out.println("Купюр в банкомате: " + banknoteQuantity);
-		System.out.println("Наимналы купюр: " + banknote1 + ", " + banknote2 + ", " + banknote3);
+		System.out.println("Номиналы купюр: " + banknote1 + ", " + banknote2 + ", " + banknote3);
 		System.out.println();
 	}
 	
@@ -38,12 +38,12 @@ public class ATM {
 				System.out.println("В банкомате стало " + this.banknoteQuantity + " купюр, было снято " + banknoteQuantity + " купюр c номиналом " + banknote);
 			}
 			else {
-				System.out.println("Внимание! Таких банкнот нет в банкомате");
+				System.out.println("Внимание! Таких банкнот -  " + banknote + ", нет в банкомате!");
 			}
 			
 		}
 		else {
-			System.out.println("Сбой в работе банкомата, cнятие " + banknoteQuantity + " купюр номиналом " + banknote + " не удалось");
+			System.out.println("Сбой в работе банкомата, cнятие " + banknoteQuantity + " купюр номиналом " + banknote + " не удалось!");
 		}
 		
 	}
@@ -52,7 +52,7 @@ public class ATM {
 		ATM atm24 = new ATM(100, 20, 50, 100);
 		atm24.getInfoATM();
 		atm24.addMoneytoATM(100, 20);
-		atm24.getMoneyfromATM(5, 50, true); 
+		atm24.getMoneyfromATM(5, 50, false); 
 
 
 	}
