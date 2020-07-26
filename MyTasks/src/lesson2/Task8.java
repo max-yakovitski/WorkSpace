@@ -1,3 +1,4 @@
+package lesson2;
 import java.util.Random;
 
 public class Task8 {

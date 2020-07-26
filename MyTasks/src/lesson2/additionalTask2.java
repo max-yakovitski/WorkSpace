@@ -1,3 +1,4 @@
+package lesson2;
 import java.util.Random;
 
 //Вывод последовательности чисел Фибоначчи до веденной границы.

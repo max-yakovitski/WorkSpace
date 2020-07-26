@@ -1,3 +1,4 @@
+package lesson2;
 import java.util.Random;
 
 // Вывод последовательности простых чисел до введенной границы. 
