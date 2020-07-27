@@ -57,6 +57,7 @@ public class Time {
 		System.out.println(timeTwo.getSeconds());
 		
 		timeOne.timeDifference(timeTwo);
+		//тест
 
 	}
 	
