@@ -52,7 +52,7 @@ public class ATM {
 		ATM atm24 = new ATM(100, 20, 50, 100);
 		atm24.getInfoATM();
 		atm24.addMoneytoATM(100, 20);
-		atm24.getMoneyfromATM(5, 50, false); 
+		atm24.getMoneyfromATM(5, 50, true); 
 
 
 	}
