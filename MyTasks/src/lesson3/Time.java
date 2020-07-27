@@ -9,7 +9,9 @@ public class Time {
 	
 	
 	public Time(int seconds) {
-		this.seconds = seconds;
+		this.hours = seconds / 3600;
+		this.minutes = seconds % 3600 / 60;
+		this.seconds = seconds % 3600 % 60;
 	}
 
 
@@ -40,21 +42,22 @@ public class Time {
 		System.out.println("Секунды - " + getSeconds() + " Минуты - " + getMinutes() + " Часы - " + getHours());
 	}
 	
+	public void timeDifference(Time time) {
+		System.out.println(time.getSeconds() - this.getSeconds());
+	}
 	
 	public static void main(String[] args) {
-		Time timeOne = new Time(1000);
+		Time timeOne = new Time(10000);
 		Time timeTwo = new Time(200, 10, 1);
+		
 		timeOne.getInfo();
 		timeTwo.getInfo();
+		
 		System.out.println(timeOne.getSeconds());
 		System.out.println(timeTwo.getSeconds());
 		
-		timeDifference(timeOne, timeTwo);
+		timeOne.timeDifference(timeTwo);
 
-	}
-	
-	public static void timeDifference(Time time, Time time2) {
-		System.out.println(time.getSeconds() - time2.getSeconds());
 	}
 	
 }
