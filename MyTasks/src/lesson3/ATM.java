@@ -9,6 +9,7 @@ public class ATM {
 	private int banknoteQty100 = 5;
 	private int banknote100 = 100;
 	private int total = banknoteQty20 + banknoteQty50 + banknoteQty100;
+	private int amount = (banknoteQty20 * banknote20) + (banknoteQty50 * banknote50) + (banknoteQty100 * banknote100);
 	
 	public ATM() {
 		
@@ -25,6 +26,7 @@ public class ATM {
 		System.out.println("Номиналы купюр: " + banknote20 + " рублей  - " + banknoteQty20 + " штук" );
 		System.out.println("Номиналы купюр: " + banknote50 + " рублей - " + banknoteQty50 + " штук");
 		System.out.println("Номиналы купюр: " + banknote100 + " рублей - " + banknoteQty100 + " штук");
+		System.out.println("Максимальная сумма для снятия : " +  amount);
 		System.out.println();
 	}
 	
@@ -32,17 +34,20 @@ public class ATM {
 		if (banknote == this.banknote20) {
 			this.banknoteQty20 += quantity;
 			total+=quantity;
-			System.out.println("В банкомат было внесено: " + quantity + " банкнот(а) с номиналом - " +  banknote +" рублей");
+			amount += quantity * banknote;
+			System.out.println("В банкомат было внесено: " + quantity + " купюра с номиналом - " +  banknote +" рублей");
 		}
 		else if (banknote == this.banknote50) {
 			this.banknoteQty50 += quantity;
 			total+=quantity;
-			System.out.println("В банкомат было внесено: " + quantity + " банкнот(а) с номиналом - " +  banknote +" рублей");
+			amount += quantity * banknote;
+			System.out.println("В банкомат было внесено: " + quantity + " купюра с номиналом - " +  banknote +" рублей");
 		}
 		else if (banknote == this.banknote100) {
 			this.banknoteQty100 += quantity;
 			total+=quantity;
-			System.out.println("В банкомат было внесено: " + quantity + " банкнот(а) с номиналом - " +  banknote +" рублей");
+			amount += quantity * banknote;
+			System.out.println("В банкомат было внесено: " + quantity + " купюра с номиналом - " +  banknote +" рублей");
 		}
 		else {
 			System.out.println("Внимание! Эти банкноты не могут быть загружены в банкомат.");
@@ -50,26 +55,40 @@ public class ATM {
 		System.out.println();
 	}
 	
-	public void getMoneyfromATM(int quantity, int banknote, boolean check) {
-		if (check == true && quantity <= banknoteQty20 && quantity <= banknoteQty50 && quantity <= banknoteQty100) {
-			if (banknote == this.banknote20) {
-				this.banknoteQty20 -= quantity;
-				total-=quantity;
-				System.out.println("В банкомате сняли: " + quantity + " банкнот с номиналом - " +  banknote +" рублей");
+	public void getMoneyfromATM(int money, boolean check) {
+		if (check == true) {
+			
+			if (money <= amount) {
+				if (money % 100 == 0) {
+					banknoteQty100 -= (money / 100);
+					total -= (money / 100);
+					amount -= money;
+					System.out.println("Выдано " + money / 100 + " купюра(ы) с номиналом 100 рублей");
+				}
+				else if (money % 50 == 0) {
+					banknoteQty50 -= (money / 50);
+					total -= (money / 50);
+					amount -= money;
+					System.out.println("Выдано " + money / 50 + " купюра(ы) с номиналом 50 рублей");
+				}
+				else if (money % 20 == 0) {
+					banknoteQty20 -= (money / 20);
+					total -= (money / 20);
+					amount -= money;
+					System.out.println("Выдано " + money / 20 + " купюра(ы) с номиналом 20 рублей");
+				}
+				else {
+					System.out.println("Пожалуйста выберите сумму кратную 20");
+				}
 			}
-			if (banknote == this.banknote50) {
-				this.banknoteQty50 -= quantity;
-				total-=quantity;
-				System.out.println("В банкомате сняли: " + quantity + " банкнот с номиналом - " +  banknote +" рублей");
+			else {
+				System.out.println("Сумма - " + money + " недоступна к снятию!");
 			}
-			if (banknote == this.banknote100) {
-				this.banknoteQty100 -= quantity;
-				total-=quantity;
-				System.out.println("В банкомате сняли: " + quantity + " банкнот с номиналом - " +  banknote +" рублей");
-			}
+			
 		}
+		
 		else {
-			System.out.println("Сбой в работе банкомата, cнятие " + quantity + " купюр номиналом " + banknote + " не удалось! Недостаточно нужных купюр!");
+			System.out.println("Сбой в работе банкомата!");
 		}
 		System.out.println();
 	}
@@ -77,13 +96,15 @@ public class ATM {
 	public static void main(String[] args) {
 		ATM atm24 = new ATM();
 		atm24.getInfoATM();
-		atm24.addMoneytoATM(1, 100);
-		atm24.getMoneyfromATM(5, 50, true);
+//		atm24.addMoneytoATM(1, 100);
+		atm24.getMoneyfromATM(50, true);
 		atm24.getInfoATM();
-		atm24.getMoneyfromATM(6, 50, true); 
+		atm24.getMoneyfromATM(150, true); 
 		atm24.getInfoATM();
-		atm24.addMoneytoATM(3, 50);
+		atm24.getMoneyfromATM(1100, true); 
 		atm24.getInfoATM();
+//		atm24.addMoneytoATM(3, 50);
+//		atm24.getInfoATM();
 
 
 	}
