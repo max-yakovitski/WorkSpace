@@ -1,4 +1,4 @@
-package lesson3;
+package by.java.Yakovitski.HomeWork.lesson3;
 
 public class Foursquare implements Figure { // наследование и полиморфизм
 
@@ -13,15 +13,10 @@ public class Foursquare implements Figure { // наследование и по�
 	}
 
 	public static void main(String[] args) {
-		Foursquare foursquare = new Foursquare(5, 5);
+		
+		Figure foursquare = new Foursquare(10, 10);
 		foursquare.getSquare();
 		
-		Figure figure = new Foursquare(10, 10);
-		figure.getSquare();
-		
-		Figure figure2 = new Circle(10);
-		figure2.getSquare();
-
 	}
 
 	@Override

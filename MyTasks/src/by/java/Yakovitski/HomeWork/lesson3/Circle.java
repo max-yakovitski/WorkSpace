@@ -1,4 +1,4 @@
-package lesson3;
+package by.java.Yakovitski.HomeWork.lesson3;
 
 public class Circle implements Figure { // наследование и полиморфизм
 
@@ -9,7 +9,7 @@ public class Circle implements Figure { // наследование и поли�
 	}
 
 	public static void main(String[] args) {
-		Circle circle = new Circle(5);
+		Figure circle = new Circle(10);
 		circle.getSquare();
 	}
 

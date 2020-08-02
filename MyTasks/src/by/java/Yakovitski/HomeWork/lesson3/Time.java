@@ -1,4 +1,4 @@
-package lesson3;
+package by.java.Yakovitski.HomeWork.lesson3;
 
 public class Time {
 
@@ -59,7 +59,6 @@ public class Time {
 		timeOne.getInfo();
 		timeTwo.getInfo();
 		timeOne.timeEquals(timeTwo);
-		//тест
 
 	}
 	

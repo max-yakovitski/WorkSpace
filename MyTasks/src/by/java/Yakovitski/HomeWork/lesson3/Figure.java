@@ -1,4 +1,4 @@
-package lesson3;
+package by.java.Yakovitski.HomeWork.lesson3;
 
 public interface Figure {
 	
