@@ -6,12 +6,10 @@ public class Time {
 	private int minutes;
 	private int hours;
 	
-	
+
 	
 	public Time(int seconds) {
-		this.hours = seconds / 3600;
-		this.minutes = seconds % 3600 / 60;
-		this.seconds = seconds % 3600 % 60;
+		this.seconds = seconds;
 	}
 
 
@@ -20,7 +18,6 @@ public class Time {
 		this.minutes = minutes;
 		this.hours = hours;
 	}
-	
 	
 
 	public int getSeconds() {
@@ -37,26 +34,31 @@ public class Time {
 		return hours;
 	}
 
-
-	public void getInfo () {
-		System.out.println("Секунды - " + getSeconds() + " Минуты - " + getMinutes() + " Часы - " + getHours());
+	public int getAllSeconds () {
+		return this.getSeconds() + this.getMinutes() * 60 + this.getHours() * 3600;
 	}
 	
-	public void timeDifference(Time time) {
-		System.out.println(time.getSeconds() - this.getSeconds());
+	public  void timeEquals(Time time) {
+		if (this.getAllSeconds() == time.getAllSeconds()) {
+			System.out.println("Объекты равны");
+		}
+		else {
+			System.out.println("Объекты не равны");
+		}
+
+	}
+	
+	public void getInfo() {
+		System.out.println(this.getSeconds() + this.getMinutes() * 60 + this.getHours() * 3600 + " секунд");
 	}
 	
 	public static void main(String[] args) {
-		Time timeOne = new Time(10000);
-		Time timeTwo = new Time(200, 10, 1);
+		Time timeOne = new Time(101, 10, 5);
+		Time timeTwo = new Time(10, 10, 8);
 		
 		timeOne.getInfo();
 		timeTwo.getInfo();
-		
-		System.out.println(timeOne.getSeconds());
-		System.out.println(timeTwo.getSeconds());
-		
-		timeOne.timeDifference(timeTwo);
+		timeOne.timeEquals(timeTwo);
 		//тест
 
 	}
