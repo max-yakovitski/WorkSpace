@@ -1,7 +1,6 @@
-package by.java.Yakovitski.HomeWork.lesson3;
+package by.java.yakovitski.homework.lesson3;
 
 public class Time {
-
 	private int seconds;
 	private int minutes;
 	private int hours;
@@ -9,7 +8,9 @@ public class Time {
 
 	
 	public Time(int seconds) {
-		this.seconds = seconds;
+		this.seconds = seconds % 60;
+		this.minutes = seconds % 3600 / 60;
+		this.hours = seconds / 3600;
 	}
 
 
@@ -38,28 +39,25 @@ public class Time {
 		return this.getSeconds() + this.getMinutes() * 60 + this.getHours() * 3600;
 	}
 	
-	public  void timeEquals(Time time) {
+	public  boolean equals(Time time) {
 		if (this.getAllSeconds() == time.getAllSeconds()) {
-			System.out.println("Объекты равны");
+			return true;
 		}
-		else {
-			System.out.println("Объекты не равны");
-		}
+		return false;
 
 	}
 	
-	public void getInfo() {
+	public void printInfo() {
 		System.out.println(this.getSeconds() + this.getMinutes() * 60 + this.getHours() * 3600 + " секунд");
 	}
 	
 	public static void main(String[] args) {
-		Time timeOne = new Time(101, 10, 5);
+		Time timeOne = new Time(10101);
 		Time timeTwo = new Time(10, 10, 8);
 		
-		timeOne.getInfo();
-		timeTwo.getInfo();
-		timeOne.timeEquals(timeTwo);
+		timeOne.printInfo();
+		timeTwo.printInfo();
+		System.out.println(timeOne.equals(timeTwo));
 
 	}
-	
 }

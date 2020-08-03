@@ -1,11 +1,9 @@
-package by.java.Yakovitski.HomeWork.lesson3;
+package by.java.yakovitski.homework.lesson3;
 
 public class Foursquare implements Figure { // наследование и полиморфизм
 
 	private int length;
 	private int width;
-	
-	
 	
 	public Foursquare(int length, int width) {
 		this.length = length;
@@ -15,14 +13,18 @@ public class Foursquare implements Figure { // наследование и по�
 	public static void main(String[] args) {
 		
 		Figure foursquare = new Foursquare(10, 10);
-		foursquare.getSquare();
+		foursquare.printSquare();
+		System.out.println(foursquare.getSquere());
 		
 	}
 
-	@Override
-	public void getSquare() {
-		System.out.println("Площадь квадрата = " + length * width + " м2");// TODO Auto-generated method stub
+	public void printSquare() {
+		System.out.println("Площадь квадрата = " + this.getSquere()+ " м2");
 		
+	}
+
+	public double getSquere() {
+		return length * width;
 	}
 
 }
