@@ -19,6 +19,10 @@ public class ATM {
 		System.out.println("В банокмате купюр номиналом 100 рублей : " + banknoteQty100 + ", номиналом 50 рублей : " + banknoteQty50 + ", номиналом 20 рублей : " + banknoteQty20);
 	}
 	
+	public int balance () {
+		return banknoteQty100 * 100 + banknoteQty50 * 50 + banknoteQty20 * 20;
+	}
+	
 	
 	public void addMoneyToATM(int twenty, int fifty, int hundred) {
 		banknoteQty20 += twenty;
@@ -27,6 +31,9 @@ public class ATM {
 	}
 	
 	public void getMoneyfromATM(int money) {
+		if (money <= balance()) {
+			
+
 		if (money % 100 == 0 && banknoteQty100 >= money / 100) {
 			banknoteQty100 -= money / 100;
 			System.out.println("Банкомат выдал " + money / 100 + " купюра(ы) - номиналом  100 рублей");
@@ -38,19 +45,19 @@ public class ATM {
 				System.out.println("Банкомат выдал " + money / 100 + " x 100 рублей " + money % 100 / 50 + " x 50 рублей ");
 			}
 			
-			if (banknoteQty100 < money / 100  && banknoteQty50 >= ((money -  banknoteQty100 * 100) / 50)) {
+			else if (banknoteQty100 < money / 100  && banknoteQty50 >= ((money -  banknoteQty100 * 100) / 50)) {
 				System.out.println("Банкомат выдал " + banknoteQty100 + " x 100 рублей " + ((money -  banknoteQty100 * 100) / 50) + " x 50 рублей ");
 				banknoteQty100 -= 0;
 				banknoteQty50 -= (money -  banknoteQty100 * 100) / 50;
 			}
 			
 				
-			if (banknoteQty50 >= money / 50) {
+			else if (banknoteQty50 >= money / 50) {
 				banknoteQty50 -= money / 50;
 				System.out.println("Банкомат выдал " + money / 50 + " купюра(ы) - номиналом  50 рублей");
 				
 			}
-			if (banknoteQty100 >= money / 100 && banknoteQty50 <= money % 100 / 50) {
+			else {
 				System.out.println("Данная сумма не доступна - обратитесь в службу поддержки");
 			}
 			
@@ -63,13 +70,13 @@ public class ATM {
 				System.out.println("Банкомат выдал " + money / 100 + " x 100 рублей " + money % 100 / 20 + " x 20 рублей ");
 			}
 			
-			if (money / 20 > 5 && banknoteQty50 >= (money / 100) * 2) {
+			else if (money / 20 > 5 && banknoteQty50 >= (money / 100) * 2) {
 				banknoteQty50 -= (money / 100) * 2;
 				banknoteQty20 -= money % 100 / 20;
 				System.out.println("Банкомат выдал " + (money / 100) * 2 + " x 50 рублей " + money % 100 / 20 + " x 20 рублей ");
 			}
 			
-			if (banknoteQty20 >= money / 20) {
+			else  {
 				banknoteQty20 -= money / 20;
 				System.out.println("Банкомат выдал " + money / 20 + " купюра(ы) - номиналом  20 рублей");
 			}
@@ -77,6 +84,10 @@ public class ATM {
 		}
 		else {
 			System.out.println("Данная сумма не доступна - обратитесь в службу поддержки");
+			}
+		}
+		else {
+			System.out.println("Ошибка! Максимальная сумма к выдачи - " + balance() + " рублей");
 		}
 	}
 	
@@ -87,11 +98,22 @@ public class ATM {
 		atm24.addMoneyToATM(2, 4, 15);
 		atm24.addMoneyToATM(6, 1, 8);
 		atm24.addMoneyToATM(1, 2, 3);
-
 		atm24.printSystemInfo();
+		System.out.println();
+
 		atm24.getMoneyfromATM(1050);
+		atm24.printSystemInfo();
+		System.out.println();
+		
 		atm24.getMoneyfromATM(350);
+		atm24.printSystemInfo();
+		System.out.println();
+		
 		atm24.getMoneyfromATM(220);
-		atm24.getMoneyfromATM(330);
+		atm24.printSystemInfo();
+		System.out.println();
+
+		atm24.getMoneyfromATM(10000);
+		atm24.printSystemInfo();
 	}
 }
