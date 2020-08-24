@@ -1,4 +1,4 @@
-package by.java.yakovitski.homework.lesson4.Fraction;
+package by.java.yakovitski.homework.lesson4.fraction;
 
 public class Fraction {
 

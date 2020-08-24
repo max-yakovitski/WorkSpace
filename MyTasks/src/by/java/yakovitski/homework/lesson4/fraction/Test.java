@@ -1,4 +1,4 @@
-package by.java.yakovitski.homework.lesson4.Fraction;
+package by.java.yakovitski.homework.lesson4.fraction;
 
 public class Test {
 	
@@ -18,7 +18,7 @@ public class Test {
 		new Test().changeArr(fraction);
 	}
 	
-	public void changeArr (Fraction fraction []) {
+	public void changeArr (Fraction fraction []) { // изменяем каждый четный элемент массива
 		for (int i = 0; i < fraction.length; i++) {
 			if (i % 2 == 0) {
 				fraction[i].add(fraction[i + 1]);
