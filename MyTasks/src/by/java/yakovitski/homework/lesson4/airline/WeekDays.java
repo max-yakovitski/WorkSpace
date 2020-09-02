@@ -1,27 +1,21 @@
-package by.java.yakovitski.homework.lesson4.Airline;
+package by.java.yakovitski.homework.lesson4.airline;
 
 public enum WeekDays {
-	MONDAY,
-	TUESDAY,
-	WEDNESDAY,
-	THURSDAY, 
-	FRIDAY, 
-	SATURDAY, 
-	SUNDAY;
+	MONDAY("Понедельник"),
+	TUESDAY("Вторник"),
+	WEDNESDAY("Среда"),
+	THURSDAY("Четверг"), 
+	FRIDAY("Пятница"), 
+	SATURDAY("Суббота"), 
+	SUNDAY("Воскременье");
 	
-	public void findFlightForDay(FlightNumber [] flightNumbers) {
-		for (int i = 0; i < flightNumbers.length; i++) {
-			if (WeekDays.this == flightNumbers[i].getWeekDays()) {
-			System.out.println(flightNumbers[i]);	
-			}
-		}
+	private String ruWeek;
+
+	private WeekDays(String ruWeek) {
+		this.ruWeek = ruWeek;
 	}
-	
-	public void findFlightForDay(FlightNumber [] flightNumbers, int time) {
-		for (int i = 0; i < flightNumbers.length; i++) {
-			if (WeekDays.this == flightNumbers[i].getWeekDays() && time < flightNumbers[i].getDepartureTime().getTime()) {
-			System.out.println(flightNumbers[i]);	
-			}
-		}
+
+	public String getRuWeek() {
+		return ruWeek;
 	}
 }

@@ -1,19 +1,21 @@
-package by.java.yakovitski.homework.lesson4.Airline;
+package by.java.yakovitski.homework.lesson4.airline;
 
 public enum Destination {
-	NEWYORK,
-	MOSCOW,
-	PARIS, 
-	LONDON, 
-	FRANKFURT, 
-	TOKIO;
+	NEWYORK("Нью Йорк"),
+	MOSCOW ("Москва"),
+	PARIS ("Париж"), 
+	LONDON ("Лондон"), 
+	FRANKFURT ("Франкфурт"), 
+	TOKIO("Токио");
 	
-	public void findFlightForDestination(FlightNumber [] flightNumbers) {
-		for (int i = 0; i < flightNumbers.length; i++) {
-			if (Destination.this == flightNumbers[i].getDestination()) {
-			System.out.println(flightNumbers[i]);	
-			}
-			
-		}
+	private String ruWeek;
+
+	private Destination(String ruWeek) {
+		this.ruWeek = ruWeek;
 	}
+
+	public String getRuDestination() {
+		return ruWeek;
+	}
+	
 }

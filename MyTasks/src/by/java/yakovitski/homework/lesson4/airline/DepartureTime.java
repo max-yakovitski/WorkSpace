@@ -1,26 +1,26 @@
-package by.java.yakovitski.homework.lesson4.Airline;
+package by.java.yakovitski.homework.lesson4.airline;
 
 public class DepartureTime {
-	int time;
+	private int hours;
 
-	public DepartureTime(int time) {
-		if (time > 24 && time < 0) {
-			System.out.print("Введено неверное время отправления");
+	public DepartureTime(int hours) {
+		if (hours > 24 || hours < 0) {
+			System.out.println("Введено неверное время отправления для рейса");
 		}
 		else {
-			this.time = time;	
+			this.hours = hours;	
 		}
 	}
 	
-	
+	public int getHours() {
+		return hours;
+	}
 
-	public int getTime() {
-		return time;
+	public void setHours(int hours) {
+		this.hours = hours;
 	}
 
 	public String toString() {
-		return time + " o'clock" ;
+		return hours + " час(ов)" ;
 	}
-	
-	
 }

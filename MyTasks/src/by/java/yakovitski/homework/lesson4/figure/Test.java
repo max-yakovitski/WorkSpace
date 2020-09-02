@@ -3,18 +3,25 @@ package by.java.yakovitski.homework.lesson4.figure;
 public class Test {
 
 	public static void main(String[] args) {
-		Triangle triangle [] = new Triangle [4];
 		
-		triangle[0] = new Triangle(5, 5, 5); //равносторонний
-		triangle[1] = new Triangle(7, 7, 6); //равнобедренный
-		triangle[2] = new Triangle(5, 4, Math.sqrt(Math.pow(5, 2) + Math.pow(4, 2))); //прямоугольный
-		triangle[3] = new Triangle(4, 5, 6); //произвольный
+		Triangle triangle1 = new Triangle(5, 5, 5); //равносторонний
+		Triangle triangle2 = new Triangle(7, 7, 6); //равнобедренный
+		Triangle triangle3 = new Triangle(5, 4, Math.sqrt(Math.pow(5, 2) + Math.pow(4, 2))); //прямоугольный
+		Triangle triangle4 = new Triangle(4, 5, 6); //произвольный
 		
-		new Test().checkTriangleArr(triangle);
-		new Test().findMaxPerimeter(triangle);
-		new Test().findMinPerimeter(triangle);
-		new Test().findMaxSquare(triangle);
-		new Test().findMinSquare(triangle);
+		Triangle triangles [] = new Triangle [4];
+		
+		triangle1.addToTriangleArr(triangles, 0);
+		triangle2.addToTriangleArr(triangles, 1);
+		triangle3.addToTriangleArr(triangles, 2);
+		triangle4.addToTriangleArr(triangles, 3);
+		
+		
+		new Test().checkTriangleArr(triangles);
+		new Test().findMaxPerimeter(triangles);
+		new Test().findMinPerimeter(triangles);
+		new Test().findMaxSquare(triangles);
+		new Test().findMinSquare(triangles);
 	}
 	
 	public void checkTriangleArr (Triangle triangle []) {
@@ -24,13 +31,13 @@ public class Test {
 		int countFree = 0;
 		
 		for (int i = 0; i < triangle.length; i++) {
-			if (triangle[i].getSideA() == triangle[i].getSideB() && triangle[i].getSideB() == triangle[i].getSideC()) {
+			if (triangle[i].checkRegularTriangle()) {
 				countRegular++;
 			}
-			else if (triangle[i].getSideA() == triangle[i].getSideB() || triangle[i].getSideA() == triangle[i].getSideC() || triangle[i].getSideC() == triangle[i].getSideB()) {
+			else if (triangle[i].checkIsoscelesTriangle()) {
 				countIsosceles++;
 			}
-			else if (triangle[i].checkRectangularTriangle() == true) {
+			else if (triangle[i].checkRectangularTriangle()) {
 				countRectangular++;
 			}
 			else {

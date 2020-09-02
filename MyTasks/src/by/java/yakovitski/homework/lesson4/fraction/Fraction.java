@@ -48,54 +48,38 @@ public class Fraction {
 	}
 
 
-	public void add(Fraction fraction) {
-		if (this.getDenominator() == fraction.getDenominator()) {
-			double sumNumerator = this.getNumerator() + fraction.getNumerator();
-			double result = sumNumerator/fraction.getDenominator();
-			System.out.println(result);
-		}
-		else {
+	public double add(Fraction fraction) {
 			double sumNumerator = this.getNumerator() * fraction.getDenominator() + fraction.getNumerator() * this.getDenominator();
 			double sumDenominator = this.getDenominator() * fraction.getDenominator();
 			double result = sumNumerator/sumDenominator;
-			System.out.println(result);
-		}
-		
+			return result;
 	}
 	
 	// вычитание дробей
 	
-	public void deduction (Fraction fraction) {
-		if (this.getDenominator() == fraction.getDenominator()) {
-			double sumNumerator = this.getNumerator() - fraction.getNumerator();
-			double result = sumNumerator/fraction.getDenominator();
-			System.out.println(result);
-		}
-		else {
+	public double deduction (Fraction fraction) {
 			double sumNumerator = this.getNumerator() * fraction.getDenominator() - fraction.getNumerator() * this.getDenominator();
 			double sumDenominator = this.getDenominator() * fraction.getDenominator();
 			double result = sumNumerator/sumDenominator;
-			System.out.println(result);
-		}
-		
+			return result;
 	}
 	
 	// перемножение дробей
 	
-	public void multiply(Fraction fraction) {
+	public double multiply(Fraction fraction) {
 			double multNumerator = this.getNumerator() * fraction.getNumerator();
 			double multDenominator = this.getDenominator() * fraction.getDenominator();
 			double result = multNumerator / multDenominator;
-			System.out.println(result);
+			return result;
 	}
 	
 	// деление дробей
 	
-	public void devide(Fraction fraction) {
+	public double devide(Fraction fraction) {
 		double multNumerator = this.getNumerator() / fraction.getNumerator();
 		double multDenominator = this.getDenominator() / fraction.getDenominator();
 		double result = multNumerator / multDenominator;
-		System.out.println(result);
+		return result;
 	}
 	
 }
