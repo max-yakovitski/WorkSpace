@@ -15,7 +15,7 @@ public class StringMethods {
 		System.out.println(StringService.findBigString(array));
 		System.out.println(StringService.findPalindrome(array));
 		
-		String testString = "Баранкин, ты бяка !";
+		String testString = "Баранкин, ты бяка!";
 		System.out.println(StringService.censureText(testString));
 		
 		String string1 = "мяч";

@@ -1,5 +1,8 @@
 package by.java.yakovitski.homework.lesson5.methods;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringService {
 	
 	public static String findBigString(String[] strings) {
@@ -31,18 +34,11 @@ public class StringService {
 	}
 	
 	public static String censureText (String strings) {
-		String[] badWords = new String[] {"бука", "бяка"};
-		String[] newStrings = strings.split("[\\s]");
-		for (int i = 0; i < newStrings.length; i++) {
-			if (newStrings[i].equalsIgnoreCase(badWords[0]) || newStrings[i].equalsIgnoreCase(badWords[1])) {
-				newStrings[i] = "[вырезано цензурой]";
-			}
-		}
-		StringBuilder stringBuilder = new StringBuilder();
-		for (int i = 0; i < newStrings.length; i++) {
-			stringBuilder.append(newStrings[i] + " ");
-		}
-		return stringBuilder.toString();
+		String[] badWords = new String [] {"бяка", "бука"};
+		Pattern pattern = Pattern.compile(badWords[0]);
+		Matcher matcher = pattern.matcher(strings);
+		return matcher.replaceAll("[вырезано цензурой]");
+		
 	}
 	
 	public static int findMatches (String input, String line) {
