@@ -6,6 +6,11 @@ public class Triangle {
 	private double sideC;
 	
 	
+	@Override
+	public String toString() {
+		return "Triangle [sideA=" + sideA + ", sideB=" + sideB + ", sideC=" + sideC + "]";
+	}
+
 	public Triangle(double sideA, double sideB, double sideC) {
 			this.sideA = sideA;
 			this.sideB = sideB;

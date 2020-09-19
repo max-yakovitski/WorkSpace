@@ -12,13 +12,14 @@ public class Circle implements Figure { // наследование и поли�
 		Figure circle = new Circle(10);
 		circle.printSquare();
 		System.out.println(circle.getSquere());
+		
 	}
 
 	public void printSquare() {
 		System.out.println("Площадь круга = " + this.getSquere() + " м2");
 		
 	}
-
+	
 	public double getSquere() {
 		final double Pi = 3.1415926536;
 		return Math.pow(radius, 2) * Pi;

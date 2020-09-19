@@ -16,12 +16,35 @@ public class Test {
 		triangle3.addToTriangleArr(triangles, 2);
 		triangle4.addToTriangleArr(triangles, 3);
 		
+		for (int i = 0; i < triangles.length; i++) {
+			System.out.println(triangles[i]);
+		}
 		
-		new Test().checkTriangleArr(triangles);
+//		new Test().checkTriangleArr(triangles);
 		new Test().findMaxPerimeter(triangles);
+
+		for (int i = 0; i < triangles.length; i++) {
+			System.out.println(triangles[i]);
+		}
+		
 		new Test().findMinPerimeter(triangles);
+		
+		for (int i = 0; i < triangles.length; i++) {
+			System.out.println(triangles[i]);
+		}
+		
 		new Test().findMaxSquare(triangles);
+		
+		for (int i = 0; i < triangles.length; i++) {
+			System.out.println(triangles[i]);
+		}
+		
 		new Test().findMinSquare(triangles);
+		
+		for (int i = 0; i < triangles.length; i++) {
+			System.out.println(triangles[i]);
+		}
+
 	}
 	
 	public void checkTriangleArr (Triangle triangle []) {
@@ -49,10 +72,11 @@ public class Test {
 	}
 	
 	public void findMaxPerimeter(Triangle triangle []) {
+		Triangle[] copyTriangle = triangle.clone();
 		int index = 0;
-		for (int i = 0; i < triangle.length; i++) {
-			if (triangle[i].getPerimeter() > triangle[0].getPerimeter()) {
-				triangle[0] = triangle[i];
+		for (int i = 0; i < copyTriangle.length; i++) {
+			if (copyTriangle[i].getPerimeter() > copyTriangle[0].getPerimeter()) {
+				copyTriangle[0] = copyTriangle[i];
 				index = i;
 
 			}
@@ -61,10 +85,11 @@ public class Test {
 	}
 	
 	public void findMinPerimeter(Triangle triangle []) {
+		Triangle[] copyTriangle = triangle.clone();
 		int index = 0;
-		for (int i = 0; i < triangle.length; i++) {
-			if (triangle[i].getPerimeter() < triangle[0].getPerimeter()) {
-				triangle[0] = triangle[i];
+		for (int i = 0; i < copyTriangle.length; i++) {
+			if (copyTriangle[i].getPerimeter() < copyTriangle[0].getPerimeter()) {
+				copyTriangle[0] = copyTriangle[i];
 				index = i;
 
 			}
@@ -73,10 +98,11 @@ public class Test {
 	}
 	
 	public void findMaxSquare(Triangle triangle []) { //периметр привязан к площади - можно не использовать, ведь чем больше периметр тем больше площадь
+		Triangle[] copyTriangle = triangle.clone();
 		int index = 0;
-		for (int i = 0; i < triangle.length; i++) {
-			if (triangle[i].getSquare() > triangle[0].getSquare()) {
-				triangle[0] = triangle[i];
+		for (int i = 0; i < copyTriangle.length; i++) {
+			if (copyTriangle[i].getSquare() > copyTriangle[0].getSquare()) {
+				copyTriangle[0] = copyTriangle[i];
 				index = i;
 
 			}
@@ -85,10 +111,11 @@ public class Test {
 	}
 	
 	public void findMinSquare(Triangle triangle []) { //периметр привязан к площади - можно не использовать, ведь чем больше периметр тем больше площадь
+		Triangle[] copyTriangle = triangle.clone();
 		int index = 0;
-		for (int i = 0; i < triangle.length; i++) {
-			if (triangle[i].getSquare() < triangle[0].getSquare()) {
-				triangle[0] = triangle[i];
+		for (int i = 0; i < copyTriangle.length; i++) {
+			if (copyTriangle[i].getSquare() < copyTriangle[0].getSquare()) {
+				copyTriangle[0] = copyTriangle[i];
 				index = i;
 
 			}

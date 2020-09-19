@@ -1,4 +1,4 @@
-package by.java.yakovitski.homework.lesson5;
+package by.java.yakovitski.homework.lesson5.array;
 
 public class Test {
 

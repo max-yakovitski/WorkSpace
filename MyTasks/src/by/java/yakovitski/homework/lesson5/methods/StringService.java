@@ -1,7 +1,7 @@
 package by.java.yakovitski.homework.lesson5.methods;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.Matcher;;
 
 public class StringService {
 	
@@ -17,55 +17,39 @@ public class StringService {
 		return strings[index];
 	}
 	
-	public static String findPalindrome(String[] strings) {
-		for (int i = 0; i < strings.length; i++) {
-			int middle = 0;
-			char[] wordArr = strings[i].toLowerCase().toCharArray();
-			for (int j = 0; j < wordArr.length - j - 1; j++) {
-				if (wordArr[j] == wordArr[wordArr.length - j - 1]) {
-					middle++;
-				}
-			}
-			if (middle >= strings[i].length() / 2) {
-				return strings[i] + " - полиндром";	
-			}
+	public static String findPalindrome(String one, String two) {
+		StringBuilder builder = new StringBuilder(two);
+		builder.reverse();
+		if (one.equalsIgnoreCase(builder.toString())) {
+			return "слова являются полиндромами";
 		}
-		return "Полиндромов не найдено";
+		else {
+			return "слова не вляются полиндромами";
+		}
 	}
 	
-	public static String censureText (String strings) {
-		String[] badWords = new String [] {"бяка", "бука"};
-		Pattern pattern = Pattern.compile(badWords[0]);
-		Matcher matcher = pattern.matcher(strings);
-		return matcher.replaceAll("[вырезано цензурой]");
-		
-	}
+	public static String censureText (String string, String badWord, String censure) {
+        Pattern pattern = Pattern.compile(badWord);
+        Matcher matcher = pattern.matcher(string);
+        return matcher.replaceAll(censure);
+    }
 	
-	public static int findMatches (String input, String line) {
-		int index = line.split(input).length - 1;
-		return index;
+	public static int findMatches (String line, String find) {
+		Pattern pattern = Pattern.compile(find);
+        Matcher matcher = pattern.matcher(line);
+        int count = 0;
+        while (matcher.find()) {
+			count++;
+		}
+        return count;
 	}
 	
 	public static boolean isIp (String string) {
 		if (string == null) {
 			return false;
 		}
-		String [] strings = string.split("\\.");
-		
-		if (strings.length != 4) {
-			return false;
-		}
-		for (String str: strings) {
-			try {
-				int value = Integer.parseInt(str);
-				if (value < 0 || value > 255) {
-				return false;
-				}
-			}
-			catch (Exception e) {
-				System.out.println("Ошибка! Строка не является числом");
-			}
-		}
-		return true;
+		Pattern pattern = Pattern.compile("([0-9]{1,3}[\\.]){3}[0-9]{1,3}");
+		Matcher matcher = pattern.matcher(string);
+		return matcher.find();
 	}
 }

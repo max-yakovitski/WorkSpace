@@ -1,10 +1,11 @@
-package by.java.yakovitski.homework.lesson5;
+package by.java.yakovitski.homework.lesson5.array;
 
 import java.util.Arrays;
 
 public class Array implements MySuperArray {
 
 	private String [] array;
+	private int arraySize;
 	
 	public Array(String[] array) {
 		this.array = array;
@@ -16,6 +17,18 @@ public class Array implements MySuperArray {
 
 	public void setArray(String[] array) {
 		this.array = array;
+	}
+	
+	public Array(int ArraySize) {
+		this.array = new String [ArraySize];
+	}
+	
+	public int getArraySize() {
+		return arraySize;
+	}
+
+	public void setArraySize(int arraySize) {
+		this.arraySize = arraySize;
 	}
 	
 	@Override
@@ -41,12 +54,12 @@ public class Array implements MySuperArray {
 
 	@Override
 	public String getElement(int index) {
-		for (int i = 0; i < array.length; i++) {
-			if (index == i) {
+			if (index >= 0 && index < array.length) {
 				return array[index];
 			}
-		}
-		return "Индекс за пределами массива";
+			else {
+				return "Индекс за пределами массива";	
+			}
 	}
 
 	@Override
@@ -58,5 +71,4 @@ public class Array implements MySuperArray {
 	public String[] getAllElements() {
 		return this.array;
 	}
-
 }

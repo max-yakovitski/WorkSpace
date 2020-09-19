@@ -38,6 +38,7 @@ public class ATM {
 			banknoteQty100 -= money / 100;
 			System.out.println("Банкомат выдал " + money / 100 + " купюра(ы) - номиналом  100 рублей");
 		}
+		
 		else if (money % 50 == 0) {
 			if (banknoteQty100 >= money / 100 && banknoteQty50 >= money % 100 / 50) {
 				banknoteQty100 -= money / 100;
